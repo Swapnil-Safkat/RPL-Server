@@ -8,7 +8,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => res.send('Connected RPL3'));
+
 
 const uri = `mongodb+srv://${process.env.DB_USER
   }:${process.env.DB_PASS
@@ -19,7 +19,7 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1
 });
-
+app.get('/', (req, res) => res.send('Connected RPL3'));
 async function run() {
   try {
     await client.connect();
