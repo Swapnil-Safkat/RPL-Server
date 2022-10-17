@@ -23,20 +23,20 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
-    const teamInfoCol = client.db('RPL3').collection('teamInfo');
-    const teamNamesCol = client.db('RPL3').collection('teamNames');
+    const TeamsCol = client.db('RPL').collection('Teams');
+    const teamNamesCol = client.db('RPL').collection('teamNames');
     
     //get all team names
-    app.get('/teamName', async (req, res) => {
-      const cursor = teamNamesCol.find({});
+    app.get('/teams', async (req, res) => {
+      const cursor = TeamsCol.find({});
       const teamNames = await cursor.toArray();
       res.send(teamNames);
     });
 
-    
+
   } finally { }
 }
 
 run().catch(console.dir);
 
-app.listen(port, () => console.log('Listening to port ', port));
+app.listen(port, () => console.log('Listening to RPL port ', port));
