@@ -17,10 +17,5 @@
     }
   ],
   
-  "rewrites": [
-    {
-      "source": "/teams",
-      "destination": "/"
-    }
-  ]
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
 }
