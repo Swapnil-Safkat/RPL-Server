@@ -8,13 +8,8 @@
   ],
   "routes":[
     {
-      "src":"/(.*)",
-      "dest":"/"
-    },
-    
-    {
-      "src":"/(.*)",
-      "dest":"/teams"
+      "src":"/teams",
+      "dest":"index.js"
     }
   ]
 }
