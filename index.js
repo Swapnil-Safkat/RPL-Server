@@ -1,9 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
+import cors from 'cors';
+import express from 'express';
+import dotenv from 'dotenv';
+import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
+dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 app.use(cors());
 app.use(express.json());
@@ -25,7 +26,7 @@ async function run() {
     await client.connect();
     const TeamsCol = client.db('RPL').collection('Teams');
     const teamNamesCol = client.db('RPL').collection('teamNames');
-    
+
     //get all team names
     app.get('/teams', async (req, res) => {
       const cursor = TeamsCol.find({});
