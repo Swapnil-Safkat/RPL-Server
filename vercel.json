@@ -12,7 +12,7 @@
       "dest":"/"
     },
     {
-      "src":"/teams",
+      "src":"/(.*)",
       "dest":"/teams"
     },
   ]
